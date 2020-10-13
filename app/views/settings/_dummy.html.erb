@@ -1,0 +1,87 @@
+<div class="box tabular settings">
+  <div class="tabs">
+    <ul>
+      <li>
+        <a
+          id="tab-companies"
+          onclick="showTab('companies', this.href); this.blur(); return false;"
+          href="/settings/plugin/redmine_document_code_generator?tab=companies"
+          >Companies</a
+        >
+      </li>
+      <li>
+        <a
+          id="tab-document_types"
+          onclick="showTab('document_types', this.href); this.blur(); return false;"
+          href="/settings/plugin/redmine_document_code_generator?tab=document_types"
+          >Documents</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <div id="tab-content-companies" class="tab-content" style="display: none">
+    <div class="contextual">
+      <a class="icon icon-add" href="/settings/plugin/redmine_document_code_generator/companies/new_company">New Company</a>
+    </div>
+    <h3>Companies</h3>
+
+    <table class="list">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Company Name</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody class="ui-sortable" style="">
+        <% Company.all.each do |company| %>
+          <td><%= company.id %></td>
+          <td><%= company.company_name %></td>
+          <td><%= company.company_code %></td>
+        <% end %>
+      </tbody>
+    </table>
+
+    <script>
+      //<![CDATA[
+
+      $(function () {
+        $("table.list tbody").positionedItems();
+      });
+
+      //]]>
+    </script>
+  </div>
+
+  <div
+    id="tab-content-document_types"
+    style="display: block"
+    class="tab-content"
+  >
+    <div class="contextual">
+      <a class="icon icon-add" href="/product_categories/new"
+        >New Document Type</a
+      >
+    </div>
+
+    <h3>Documents</h3>
+
+    <table class="list">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Document Type</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody class="ui-sortable" style="">
+        <% DocumentType.all.each do |doc| %>
+          <td><%= doc.id %></td>
+          <td><%= doc.document_type_name %></td>
+          <td><%= doc.document_type_code %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
