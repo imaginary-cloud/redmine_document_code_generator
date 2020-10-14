@@ -1,0 +1,22 @@
+<h2>New Company</h2>
+
+<form
+  class="new_company"
+  id="new_company"
+  action="/settings/plugin/redmine_document_code_generator/companies/new_company"
+  method="post"
+>
+  <div class="box tabular">
+    <p>
+      <label for="company_name"
+        >Company Name<span class="required"> *</span></label
+      ><input type="text" name="company_name" id="company_name" />
+    </p>
+    <p>
+      <label for="company_code">Code<span class="required"> *</span></label
+      ><input type="text" name="company_code" id="company_code" />
+    </p>
+  </div>
+
+  <input type="submit" name="commit" value="Create" />
+</form>
