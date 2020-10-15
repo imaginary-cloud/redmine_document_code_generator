@@ -8,5 +8,5 @@ Redmine::Plugin.register :redmine_document_code_generator do
 
   menu :top_menu, :documents, { controller: 'document_gen', action: 'index' }, caption: 'Documents'
   
-  settings default: {'empty' => true}, partial: 'settings/dummy'
+  settings default: {'empty' => true}, partial: 'settings/general'
 end

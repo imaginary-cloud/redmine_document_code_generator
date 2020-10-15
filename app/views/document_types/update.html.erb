@@ -1,0 +1,10 @@
+<h2>Edit Document: <%= @document.document_type_name %></h2>
+
+<%= form_for @document, url: {action: "updateDoc"} do |f| %>
+  <div class="box tabular">
+    <%= f.hidden_field :id %>
+    <p><%= label_tag(:document_type_name, "Document Type Name:") %><%= f.text_field :document_type_name, :required => true %></p>
+    <p><%= label_tag(:document_type_code, "Document Type Code:") %><%= f.text_field :document_type_code, :required => true %></p>
+    <%= submit_tag 'Edit' %>
+  </div>
+<% end %>

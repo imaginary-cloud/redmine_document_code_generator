@@ -1,0 +1,10 @@
+<h2>Edit Company: <%= @company.company_name %></h2>
+
+<%= form_for @company, url: {action: "updateCompany"} do |f| %>
+  <div class="box tabular">
+    <%= f.hidden_field :id %>
+    <p><%= label_tag(:company_name, "Company Name:") %><%= f.text_field :company_name, :required => true %></p>
+    <p><%= label_tag(:company_code, "Company Code:") %><%= f.text_field :company_code, :required => true %></p>
+    <%= submit_tag 'Edit' %>
+  </div>
+<% end %>

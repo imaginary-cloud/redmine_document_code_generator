@@ -22,23 +22,25 @@
 
   <div id="tab-content-companies" class="tab-content" style="display: none">
     <div class="contextual">
-      <a class="icon icon-add" href="/settings/plugin/redmine_document_code_generator/companies/new_company">New Company</a>
+      <a class="icon icon-add" href="/settings/plugin/redmine_document_code_generator/companies">New Company</a>
     </div>
     <h3>Companies</h3>
 
     <table class="list">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Company Name</th>
           <th>Code</th>
+          <th>Company Name</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody class="ui-sortable" style="">
         <% Company.all.each do |company| %>
-          <td><%= company.id %></td>
-          <td><%= company.company_name %></td>
-          <td><%= company.company_code %></td>
+          <tr>
+            <td><%= company.company_code %></td>
+            <td><%= company.company_name %></td>
+            <td style="width: 200px"><a class="icon icon-edit" style="margin-right: 20px" href=<%= "/settings/plugin/redmine_document_code_generator/documents/edit/#{company.id} "%> >Edit</a><%= delete_link "/settings/plugin/redmine_document_code_generator/companies/#{company.id}" %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
@@ -60,7 +62,7 @@
     class="tab-content"
   >
     <div class="contextual">
-      <a class="icon icon-add" href="/product_categories/new"
+      <a class="icon icon-add" href="/settings/plugin/redmine_document_code_generator/documents"
         >New Document Type</a
       >
     </div>
@@ -70,16 +72,18 @@
     <table class="list">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Document Type</th>
           <th>Code</th>
+          <th>Document Type</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody class="ui-sortable" style="">
         <% DocumentType.all.each do |doc| %>
-          <td><%= doc.id %></td>
-          <td><%= doc.document_type_name %></td>
-          <td><%= doc.document_type_code %></td>
+          <tr>
+            <td><%= doc.document_type_code %></td>
+            <td><%= doc.document_type_name %></td>
+            <td style="width: 200px"><a class="icon icon-edit" style="margin-right: 20px" href=<%= "/settings/plugin/redmine_document_code_generator/documents/edit/#{doc.id} "%>>Edit </a> <%= delete_link "/settings/plugin/redmine_document_code_generator/documents/#{doc.id}" %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
