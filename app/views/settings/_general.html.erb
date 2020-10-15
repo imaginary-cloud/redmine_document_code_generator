@@ -39,7 +39,7 @@
           <tr>
             <td><%= company.company_code %></td>
             <td><%= company.company_name %></td>
-            <td style="width: 200px"><a class="icon icon-edit" style="margin-right: 20px" href=<%= "/settings/plugin/redmine_document_code_generator/documents/edit/#{company.id} "%> >Edit</a><%= delete_link "/settings/plugin/redmine_document_code_generator/companies/#{company.id}" %></td>
+            <td style="width: 200px"><a class="icon icon-edit" style="margin-right: 20px" href=<%= "/settings/plugin/redmine_document_code_generator/companies/edit/#{company.id} "%> >Edit</a><%= delete_link "/settings/plugin/redmine_document_code_generator/companies/#{company.id}" %></td>
           </tr>
         <% end %>
       </tbody>
